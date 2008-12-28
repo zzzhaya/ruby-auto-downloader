@@ -2,9 +2,9 @@ $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 require 'open-uri'
 require 'kconv'
+require 'date'
 
 module AutoDownloader
-  VERSION='0.0.1'
   class AutoDownloader
     attr_reader :url, :pattern, :min
     def initialize()
@@ -37,13 +37,14 @@ module AutoDownloader
         raise
       end
 
-      #ディレクトリ名をタイトルに。
+      #日付+ディレクトリ名をタイトルに。
       if /<title>([^\/\\]*?)<\/title>/ =~ source and $1!='' 
         if(Kconv.guess($1) == Kconv::ASCII)
           savedir = $1.kconv(Kconv::UTF8,  Kconv::EUC) #半角カナがあるとASCIIと間違えがちなので、EUC-JPに決め打ち。こうしないと文字が化ける。
         else
           savedir = $1.toutf8
         end
+        savedir = Date::today.to_s + savedir
         Dir.mkdir(savedir) unless File.exist?(savedir)
       else
         raise "not appropirate title : #{source.base_uri}のタイトルが不適切です"

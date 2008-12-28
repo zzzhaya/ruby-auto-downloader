@@ -8,11 +8,13 @@ Crawl sites and download images/pictures or everything you want
 
 == FEATURES/PROBLEMS:
 
-* FC2 blog crawling
+* FC2 blog image crawling
+* livedoor blog image crawling
 
 == SYNOPSIS:
 
 bin/fc2 --path ~/images --min 20 http://xxx.blog00.fc2.com/blog-entry-xxxx.html
+bin/livedoor-blog --path ~/images --min 20 http://xxx.livedoor.biz/archives/xxxxxxxx.html
 
 == REQUIREMENTS:
 
