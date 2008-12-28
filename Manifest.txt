@@ -1,0 +1,16 @@
+History.txt
+Manifest.txt
+PostInstall.txt
+README.rdoc
+Rakefile
+bin/fc2
+lib/auto-downloader.rb
+lib/fc2/cli.rb
+script/console
+script/destroy
+script/generate
+spec/auto-downloader_spec.rb
+spec/fc2_cli_spec.rb
+spec/spec.opts
+spec/spec_helper.rb
+tasks/rspec.rake
